@@ -16,19 +16,22 @@ class PlaysController < ApplicationController
     @play = current_user.plays.create!(play_params.merge(game: @game))
     if @play.save
       flash[:notice] = "Your game played on #{@play.date} was successfully created."
-      redirect_to @board
+      redirect_to game_play_path(@game, @play)
     else
       render :new
     end
+  end
+
+  def show
   end
 
   def edit
   end
 
   def update
-    if @play.update(pin_params)
+    if @play.update(play_params)
       flash[:notice] = "Your game played on #{@play.date} was successfully updated."
-      redirect_to @play
+      redirect_to game_play_path(@game, @play)
     else
       render :edit
     end
@@ -47,5 +50,11 @@ class PlaysController < ApplicationController
   def set_play
     @play = Play.find(params[:id])
     @game = Game.find(params[:game_id])
+    # for "next" button:
+    # @plays = Play.all
+    # #@all_play_ids = plays.map do |play| play.id end
+    # @play_counter = params[:id].to_i
+    # @play_counter = (@play_counter + 1)
   end
+
 end

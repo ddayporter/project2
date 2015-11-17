@@ -11,14 +11,11 @@
 </div>
 
 <h3><%= @game.title %> games played:</h3>
-<%# @game.plays.reverse.each do |play| %>
-<div class="play-tile">
-  <p>
-    list of game plays will be here.
-  </p>
-  <% @plays.each do |play| %>
-  <%= link_to play.date, game_play_path(@game.id, play) %>
-  <%= image_tag play.image, alt: "floor layout image" %>
-  <% end %>
-</div>
-<%# end %>
+
+<% @plays.reverse.each do |play| %>
+  <div class="play-tile">
+    <p>Games played by date:</p>
+    <%= link_to play.date, game_play_path(@game.id, play) %>
+    <%= image_tag play.image, class: "play-preview-image", alt: "floor layout image" %>
+  </div>
+<% end %>

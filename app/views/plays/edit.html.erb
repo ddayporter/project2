@@ -1,0 +1,5 @@
+<h2>Edit the game played on <%= @play.date %></h2>
+
+<%= render 'form' %>
+
+<%= link_to "Delete Game", game_play_path(@game, @play), method: :delete, class: "delete" %>

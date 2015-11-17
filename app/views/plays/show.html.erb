@@ -1,0 +1,31 @@
+<%= image_tag @game.logo, class: "game-logo", alt: @game.title %>
+<div class="game-info">
+  <%= link_to "Back to Burgle Bros Main Page", game_path(@game) %>
+  <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
+  <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url, target: "_blank" %></p>
+</div>
+
+<!-- <div class="gameplay-next">
+  <%# if @play_counter <= @plays.count %>
+  <%#= link_to "Next", game_play_path(@game, @play_counter) %>
+  <% else %>
+  <%#= link_to "Next", game_play_path(@game, @plays.first) %>
+  <%# end %>
+</div> -->
+
+<div class="gameplay-info">
+  <h3>Game played on <%= @play.date %></h3>
+  <h3><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></h3>
+</div>
+
+<div class="gameplay-details">
+  <p>Number of floors: <%= @play.num_floors %></p>
+  <p>Player 1 character: <%= @play.player_one_character %></p>
+  <p>Player 2 character: <%= @play.player_two_character %></p>
+  <p>Player 3 character: <%= @play.player_three_character %></p>
+  <p>Player 4 character: <%= @play.player_four_character %></p>
+  <p>Loot scored: <%= @play.loot %></p>
+  <p>Tools scored: <%= @play.tools %></p>
+  <p>Event cards played: <%= @play.events %></p>
+  <p>Winner: <%= @play.winner %></p>
+</div>
