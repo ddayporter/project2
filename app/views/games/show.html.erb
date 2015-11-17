@@ -10,12 +10,11 @@
   <h3><%= link_to "Create New Game Played", new_game_play_path(@game) %></h3>
 </div>
 
-<h3><%= @game.title %> games played:</h3>
+<h3><%= @game.title %> games played by date created:</h3>
 
 <% @plays.reverse.each do |play| %>
   <div class="play-tile">
-    <p>Games played by date:</p>
-    <%= link_to play.date, game_play_path(@game.id, play) %>
+    <%= link_to play.created_at.strftime("%B %d, %Y"), game_play_path(@game.id, play) %>
     <%= image_tag play.image, class: "play-preview-image", alt: "floor layout image" %>
   </div>
 <% end %>

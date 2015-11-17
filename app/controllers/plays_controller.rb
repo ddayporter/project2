@@ -15,7 +15,7 @@ class PlaysController < ApplicationController
     @game = Game.find(params[:game_id])
     @play = current_user.plays.create!(play_params.merge(game: @game))
     if @play.save
-      flash[:notice] = "Your game played on #{@play.date} was successfully created."
+      flash[:notice] = "Your game was successfully created."
       redirect_to game_play_path(@game, @play)
     else
       render :new
