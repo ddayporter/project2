@@ -1,0 +1,23 @@
+<h2>Create New Game</h2>
+
+<h3>Game Title: Burgle Brothers</h3>
+
+<%= form_for [@game] do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, value: "Burgle Brothers" %>
+
+  <%= f.label :num_stars, value: "Star Rating (out of 5)" %>
+  <%= f.text_field :num_stars %>
+
+  <%= f.label :image %>
+  <%= f.text_field :image %>
+
+  <%= f.label :logo %>
+  <%= f.text_field :logo %>
+
+  <%= f.label :purchase_url %>
+  <%= f.text_field :purchase_url %>
+
+  <%= f.submit %>
+<% end %>

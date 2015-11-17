@@ -1,0 +1,22 @@
+<%= image_tag @game.logo, class: "game-logo", alt: @game.title %>
+<div class="game-info">
+  <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
+  <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
+</div>
+
+<div class="action-buttons">
+  <h3><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></h3>
+
+  <h3><%= link_to "Create New Game Played", new_game_play_path(@game) %></h3>
+</div>
+
+<h3><%= @game.title %> games played:</h3>
+<%# @game.plays.reverse.each do |play| %>
+<div class="play-tile">
+  <p>
+    list of game plays will be here.
+  </p>
+  <%#= link_to play.date.to_s, game_play_path(play) %>
+  <%#= image_tag play.image, alt: "floor layout image" %>
+</div>
+<%# end %>
