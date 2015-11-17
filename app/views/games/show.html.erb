@@ -16,7 +16,9 @@
   <p>
     list of game plays will be here.
   </p>
-  <%#= link_to play.date.to_s, game_play_path(play) %>
-  <%#= image_tag play.image, alt: "floor layout image" %>
+  <% @plays.each do |play| %>
+  <%= link_to play.date, game_play_path(@game.id, play) %>
+  <%= image_tag play.image, alt: "floor layout image" %>
+  <% end %>
 </div>
 <%# end %>

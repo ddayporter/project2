@@ -46,6 +46,6 @@ class PlaysController < ApplicationController
 
   def set_play
     @play = Play.find(params[:id])
-    @game = Game.find(params[:board_id])
+    @game = Game.find(params[:game_id])
   end
 end
