@@ -1,7 +1,25 @@
+<div class="row">
+  <div class="col-sm-4">
+    where's this
+  </div>
+  <div class="col-sm-4">
 <%= image_tag @game.logo, class: "game-logo", alt: @game.title %>
+  </div>
+  <div class="col-sm-4">
+    <p>
+      where's that
+    </p>
+  </div>
+
+</div>
+
+
+
 <div class="game-info">
   <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
   <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
+  <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
+  <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
 </div>
 
 <div class="action-buttons">
@@ -10,11 +28,11 @@
   <h3><%= link_to "Create New Game Played", new_game_play_path(@game) %></h3>
 </div>
 
-<h3><%= @game.title %> games played by date created:</h3>
+<h3><%= @game.title %> games played by date:</h3>
 
 <% @plays.reverse.each do |play| %>
   <div class="play-tile">
-    <%= link_to play.created_at.strftime("%B %d, %Y"), game_play_path(@game.id, play) %>
+    <%= link_to play.date.strftime("%B %d, %Y"), game_play_path(@game.id, play) %>
     <%= image_tag play.image, class: "play-preview-image", alt: "floor layout image" %>
   </div>
 <% end %>

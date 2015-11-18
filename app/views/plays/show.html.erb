@@ -14,7 +14,7 @@
 </div> -->
 
 <div class="gameplay-info">
-  <h3>Game played on <%= @play.date %></h3>
+  <h3>Game played on <%= @play.date.inspect %></h3>
   <h3><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></h3>
 </div>
 
