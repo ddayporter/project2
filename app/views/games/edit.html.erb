@@ -2,6 +2,9 @@
 
 <h3>Game Title: Burgle Brothers</h3>
 
-<%= render 'form' %>
+<div class="form-horizontal">
+  <%= render 'form' %>
+</div>
+
 
 <%= link_to "Delete Game", game_path(@game), method: :delete, class: "delete" %>

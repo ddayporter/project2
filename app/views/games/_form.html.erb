@@ -1,19 +1,29 @@
-<%= form_for [@game] do |f| %>
+<%= form_for [@game], role: "form" do |f| %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title, value: "Burgle Brothers" %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", value: "Burgle Brothers" %>
+  </div>
 
-  <%= f.label :num_stars %>
-  <%= f.text_field :num_stars %>
+  <div class="form-group">
+    <%= f.label :num_stars %>
+    <%= f.text_field :num_stars, class: "form-control" %>
+  </div>
 
-  <%= f.label :image %>
-  <%= f.text_field :image %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.text_field :image, class: "form-control" %>
+  </div>
 
-  <%= f.label :logo %>
-  <%= f.text_field :logo %>
+  <div class="form-group">
+    <%= f.label :logo %>
+    <%= f.text_field :logo, class: "form-control" %>
+  </div>
 
-  <%= f.label :purchase_url %>
-  <%= f.text_field :purchase_url %>
+  <div class="form-group">
+    <%= f.label :purchase_url %>
+    <%= f.text_field :purchase_url, class: "form-control" %>
+  </div>
 
   <%= f.submit %>
 <% end %>
