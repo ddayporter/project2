@@ -27,7 +27,16 @@ $dark-accent: #461F06;
 }
 
 body {
-  background-image: url('concrete_seamless.png')
+  background: $button-background-color;
+  // background-image: url('brick-paper.jpg');
+}
+
+.devise-form {
+  color: white;
+    input {
+      color: $button-background-color;
+      margin-bottom: 1%;
+    }
 }
 
 .game-logo {
@@ -89,7 +98,6 @@ body {
 .show-page {
   background-image: url('wet-snow.png');
   background-size: contain;
-  border: 5px solid black;
   margin-bottom: 35px;
 }
 
@@ -135,4 +143,9 @@ img {
 
 .plays-display {
   padding: 5%;
+}
+
+// flash messages
+.notice, .alert {
+  color: white;
 }
