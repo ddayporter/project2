@@ -6,9 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.destroy_all
-Game.destroy_all
-Play.destroy_all
+# User.destroy_all
+# Game.destroy_all
+# Play.destroy_all
+Character.destroy_all
+
+burgle = Game.find(2);
+
+burgle.characters.create([{name: "The Acrobat", image: "acrobat.jpg"}, {name: "The Hacker", image: "hacker.jpg"}, {name: "The Hawk", image: "hawk.jpg"}, {name: "The Juicer", image: "juicer"}, {name: "The Peterman", image: "peterman.jpg"}, {name: "The Raven", image: "raven.jpg"}, {name: "The Rigger", image: "rigger.jpg"}, {name: "The Rook", image: "rook.jpg"}, {name: "The Spotter", image: "spotter.jpg"}])
 
 # User.create([{email: 'kharvey0@netscape.com', password: 'password'}, {email: 'lhamilton1@columbia.edu', password: 'owh2841adso'}, {email: 'tkelley2@merriam-webster.com', password: 'aos1ehashoi'}, {email: 'rbryant3@163.com', password: 'aaaa111b'}, {email: 'rbell4@cnbc.com', password: 'fl1eAJoy7J'}])
 # Game.create([{title: 'Smashup', user_id: 1}, {title: 'Machi Koro', user_id: 2}, {title: 'Star Realms', user_id: 3}, {title: 'Burgle Brothers', user_id: 2}, {title: 'Star Realms', user_id: 4}, {title: 'Smashup', user_id: 2}] )

@@ -31,12 +31,26 @@ body {
   // background-image: url('brick-paper.jpg');
 }
 
-.devise-form {
+.devise-form, .game-form {
   color: white;
     input {
-      color: $button-background-color;
       margin-bottom: 1%;
     }
+    a:hover {
+      color: white;
+    }
+}
+
+.control-label {
+  color: white;
+}
+
+.delete {
+  padding: 10px;
+  background-color: $patrolman;
+  @include border-radius(5px);
+  text-decoration: none;
+  color: white;
 }
 
 .game-logo {
@@ -116,14 +130,24 @@ img {
   margin: 0 auto;
   @include border-radius(10px);
 }
+.game-tile {
+  background-color: $loot;
+}
 
-.game-tile, .play-tile {
+.play-tile {
+  background-color: $patrolman;
+}
+
+.char-tile {
+  background-color: $events;
+}
+
+.game-tile, .play-tile, .char-tile {
   display: inline-block;
   width: 30%;
   // min-height: 300px;
-  background-color: $loot;
   // background-color: rgba($yellow, 0.8);
-  margin: 0 auto;
+  margin: 1% auto;
   padding: 2%;
   text-align: center;
   @include border-radius(10px);
@@ -141,7 +165,7 @@ img {
 
 }
 
-.plays-display {
+.plays-display, .characters-display {
   padding: 5%;
 }
 

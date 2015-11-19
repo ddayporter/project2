@@ -6,11 +6,12 @@
     <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
     <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
     <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
-    <div class="action-buttons">
+    <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
+    <p><%= link_to "Characters", game_characters_path %>
+      <div class="action-buttons">
       <p><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></p>
       <p><%= link_to "Create New Game Played", new_game_play_path(@game) %></p>
     </div>
-    <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
   </div>
 
   <!-- <div class="gameplay-next">
@@ -28,7 +29,7 @@
   </div>
 
   <div class="gameplay-details">
-    <p>Number of floors: <%= @play.num_floors %></p>  
+    <p>Number of floors: <%= @play.num_floors %></p>
     <p>Player 1 character: <%= @play.player_one_character %></p>
     <p>Player 2 character: <%= @play.player_two_character %></p>
     <p>Player 3 character: <%= @play.player_three_character %></p>
