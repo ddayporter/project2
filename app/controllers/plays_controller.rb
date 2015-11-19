@@ -49,7 +49,7 @@ class PlaysController < ApplicationController
 
   def set_play
     @play = Play.find(params[:id])
-    @game = Game.find(params[:game_id])
+    @game = @play.game
     # for "next" button:
     # @plays = Play.all
     # #@all_play_ids = plays.map do |play| play.id end

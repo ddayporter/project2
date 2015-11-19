@@ -7,7 +7,7 @@
     <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
     <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
     <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
-    <p><%= link_to "Characters", game_characters_path %>
+    <p><%= link_to "Characters", game_characters_path(@game) %>
       <div class="action-buttons">
       <p><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></p>
       <p><%= link_to "Create New Game Played", new_game_play_path(@game) %></p>
@@ -22,23 +22,58 @@
     <%# end %>
   </div> -->
   <div class="plays-display">
-  <div class="play-buttons">
-    <h4>Game played on <%= l @play.date, format: :long %></h4>
-    <p><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></p>
-    <p><%= link_to "Back to List", game_path(@game) %></p>
-  </div>
+    <div class="play-buttons">
+      <h4>Game played on <%= l @play.date, format: :long %></h4>
+      <p><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></p>
+      <p><%= link_to "Back to List", game_path(@game) %></p>
+    </div>
 
-  <div class="gameplay-details">
-    <p>Number of floors: <%= @play.num_floors %></p>
-    <p>Player 1 character: <%= @play.player_one_character %></p>
-    <p>Player 2 character: <%= @play.player_two_character %></p>
-    <p>Player 3 character: <%= @play.player_three_character %></p>
-    <p>Player 4 character: <%= @play.player_four_character %></p>
-    <p>Loot scored: <%= @play.loot %></p>
-    <p>Tools scored: <%= @play.tools %></p>
-    <p>Event cards played: <%= @play.events %></p>
-    <p>Winner: <%= @play.winner %></p>
-  </div>
+    <div class="gameplay-details">
+      <p>Number of floors: <%= @play.num_floors %> (<%= link_to "See Layout", @play.image %>)</p>
+      <p>Characters:</p>
+      <div class="character-list">
+        <% @game.characters.each do |character| %>
+          <% mission = Mission.find_by(play: @play, character: character) %>
+          <% if mission %>
+            <div class="char-sm-tile player-tile">
+              <h4>Played</h4>
+              <%= link_to "Remove Player", mission_path(mission), method: :delete, class: "player" %>
+              <%= image_tag character.image, alt: character.name %>
+            </div>
+          <% else %>
+            <div class="char-sm-tile nonplayer-tile">
+              <h4><%= link_to "Add Player", missions_path(play_id: @play, character_id: character), method: :post, class: "nonplayer" %></h4>
+              <%= image_tag character.image, alt: character.name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <h3>Loot scored: </h3>
+        <% loot = @play.loot.split(',') %>
+        <% loot.each do |loot| %>
+          <p class="loot-tile"><%= loot %></p>
+        <% end %>
+      <h3>Tools scored: <%= @play.tools %></h3>
+        <% tools = @play.tools.split(',') %>
+        <% tools.each do |tool| %>
+          <p class="tool-tile"><%= tool %></p>
+        <% end %>
+      <h3>Event cards played: <%= @play.events %></h3>
+      <% events = @play.events.split(',') %>
+      <% events.each do |event| %>
+        <p class="event-tile"><%= event %></p>
+      <% end %>
+      <h3>Result:</h3>
+      <div class="game-result">
+        <% if @play.winner == 'players' %>
+          <%= image_tag "winner-cup.png" %>
+          <p>We won!</p>
+        <% else %>
+          <%= image_tag "sad-icon.png" %>
+          <p>We lost, womp.</p>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 
