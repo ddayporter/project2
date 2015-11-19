@@ -2,35 +2,137 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$primary-color: #D5ACA9;
+$secondary-color: #B38D97;
+$button-background-color: #424B54;
+$button-link-color: #C5BAAF;
+$text-color: #222;
+$yellow: #EBCFB2;
+$grey: #9EA3B0;
+$loot: #449EAB;
+$events: #8A5F79;
+$tools: #57A256;
+$patrolman: rgb(189, 82, 62);
+$dark-accent: #461F06;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('concrete_seamless.png')
+}
+
 .game-logo {
   position: relative;
   width: 100%;
 }
 
-.page-header {
-  text-align: center;
+.game-info, .play-buttons {
+  p {
+    display: inline-block;
+    padding: 10px;
+    background-color: $button-background-color;
+    color: white;
+  }
+  p:hover {
+    background-color: $loot;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  .action-buttons {
+    float: right;
+      p:hover {
+        background-color: $patrolman;
+      }
+  }
+}
+
+.show-header {
+  background-image: url('burgle-bros-lineup');
+  background-size: cover;
+  padding-top: 2px;
+  padding-left: 25px;
+    h2 {
+      padding-bottom: 200px;
+      font-family: 'Arial Black', sans-serif;
+    }
+}
+
+.play-buttons {
+  p:hover {
+    background-color: $tools;
+  }
+}
+
+.gameplay-details {
+    p {
+      padding: 20px;
+      background: rgba($events, 0.4);
+      font-size: 20px;
+      font-weight: bold;
+    }
+    p:nth-of-type(odd) {
+      background: rgba($tools, 0.4);
+    }
+}
+
+.show-page {
+  background-image: url('wet-snow.png');
+  background-size: contain;
+  border: 5px solid black;
+  margin-bottom: 35px;
 }
 
 button {
   position: relative;
-  left: 10%;
+  right: 0;
   margin-bottom: 10px;
     a {
     color: white;
     }
 }
 
-.game-tile {
-  background: rgb(251, 187, 146);
-  padding: 30px;
-  text-align: center;
-  font-size: 30px;
-    a {
-      text-decoration: none;
-      font-weight: bold;
-    }
+img {
+  width: 100%;
+  max-height: 200px;
+  margin: 0 auto;
+  @include border-radius(10px);
 }
 
-.col-sm-12 {
-  margin-bottom: 20px;
+.game-tile, .play-tile {
+  display: inline-block;
+  width: 30%;
+  // min-height: 300px;
+  background-color: $loot;
+  // background-color: rgba($yellow, 0.8);
+  margin: 0 auto;
+  padding: 2%;
+  text-align: center;
+  @include border-radius(10px);
+
+  p {
+    padding-left: 3%;
+  }
+
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+  }
+
+}
+
+.plays-display {
+  padding: 5%;
 }

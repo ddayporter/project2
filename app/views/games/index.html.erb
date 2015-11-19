@@ -1,14 +1,11 @@
-<div class="row">
-  <div class="col-sm-12">
-    <button class="btn btn-primary" role="button">
-      <%= link_to "Create New Game", new_game_path %>
-    </button>
-  </div>
-</div>
 
-<div class="row">
+<!-- <button class="btn btn-primary" role="button">
+  <%#= link_to "Create New Game", new_game_path %>
+</button> -->
+
 <% @games.each do |game| %>
-  <div class="col-sm-12 game-tile">
-    <%= link_to game.title, game_path(game) %>
+  <div class="game-tile">
+    <%= image_tag game.logo, alt: game.title %>
+    <h3><%= link_to "See Heists", game_path(game) %></h3>
   </div>
 <% end %>

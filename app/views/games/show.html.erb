@@ -1,38 +1,28 @@
-<div class="row">
-  <div class="col-sm-4">
-    where's this
+<div class="show-page">
+  <div class="show-header">
+    <h2>Burgle Bros.</h2>
   </div>
-  <div class="col-sm-4">
-<%= image_tag @game.logo, class: "game-logo", alt: @game.title %>
+  <div class="game-info">
+    <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
+    <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
+    <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
+    <div class="action-buttons">
+      <p><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></p>
+      <p><%= link_to "Create New Game Played", new_game_play_path(@game) %></p>
+    </div>
+    <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
   </div>
-  <div class="col-sm-4">
-    <p>
-      where's that
-    </p>
+  <div class="plays-display">
+    <h3>Games played by date:</h3>
+
+    <% @plays.reverse.each do |play| %>
+      <div class="play-tile">
+        <h3><%= link_to play.date.strftime("%B %d, %Y"), game_play_path(@game.id, play) %></h3>
+        <%= image_tag play.image, class: "play-preview-image", alt: "floor layout image" %>
+      </div>
+    <% end %>
+
   </div>
 
 </div>
-
-
-
-<div class="game-info">
-  <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
-  <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
-  <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
-  <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
-</div>
-
-<div class="action-buttons">
-  <h3><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></h3>
-
-  <h3><%= link_to "Create New Game Played", new_game_play_path(@game) %></h3>
-</div>
-
-<h3><%= @game.title %> games played by date:</h3>
-
-<% @plays.reverse.each do |play| %>
-  <div class="play-tile">
-    <%= link_to play.date.strftime("%B %d, %Y"), game_play_path(@game.id, play) %>
-    <%= image_tag play.image, class: "play-preview-image", alt: "floor layout image" %>
-  </div>
-<% end %>
+<%#= image_tag @game.logo, class: "game-logo", alt: @game.title %>

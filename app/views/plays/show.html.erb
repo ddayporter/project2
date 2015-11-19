@@ -1,31 +1,44 @@
-<%= image_tag @game.logo, class: "game-logo", alt: @game.title %>
-<div class="game-info">
-  <%= link_to "Back to Burgle Bros Main Page", game_path(@game) %>
-  <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
-  <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url, target: "_blank" %></p>
-</div>
+<div class="show-page">
+  <div class="show-header">
+    <h2>Burgle Bros.</h2>
+  </div>
+  <div class="game-info">
+    <p class="star-rating">Star rating (out of 5): <%= @game.num_stars %></p>
+    <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
+    <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
+    <div class="action-buttons">
+      <p><%= link_to "Edit #{@game.title} Info", edit_game_path(@game) %></p>
+      <p><%= link_to "Create New Game Played", new_game_play_path(@game) %></p>
+    </div>
+    <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
+  </div>
 
-<!-- <div class="gameplay-next">
-  <%# if @play_counter <= @plays.count %>
-  <%#= link_to "Next", game_play_path(@game, @play_counter) %>
-  <% else %>
-  <%#= link_to "Next", game_play_path(@game, @plays.first) %>
-  <%# end %>
-</div> -->
+  <!-- <div class="gameplay-next">
+    <%# if @play_counter <= @plays.count %>
+    <%#= link_to "Next", game_play_path(@game, @play_counter) %>
+    <% else %>
+    <%#= link_to "Next", game_play_path(@game, @plays.first) %>
+    <%# end %>
+  </div> -->
+  <div class="plays-display">
+  <div class="play-buttons">
+    <h4>Game played on <%= l @play.date, format: :long %></h4>
+    <p><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></p>
+    <p><%= link_to "Back to List", game_path(@game) %></p>
+  </div>
 
-<div class="gameplay-info">
-  <h3>Game played on <%= @play.date.inspect %></h3>
-  <h3><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></h3>
-</div>
+  <div class="gameplay-details">
+    <p>Number of floors: <%= @play.num_floors %></p>  
+    <p>Player 1 character: <%= @play.player_one_character %></p>
+    <p>Player 2 character: <%= @play.player_two_character %></p>
+    <p>Player 3 character: <%= @play.player_three_character %></p>
+    <p>Player 4 character: <%= @play.player_four_character %></p>
+    <p>Loot scored: <%= @play.loot %></p>
+    <p>Tools scored: <%= @play.tools %></p>
+    <p>Event cards played: <%= @play.events %></p>
+    <p>Winner: <%= @play.winner %></p>
+  </div>
 
-<div class="gameplay-details">
-  <p>Number of floors: <%= @play.num_floors %></p>
-  <p>Player 1 character: <%= @play.player_one_character %></p>
-  <p>Player 2 character: <%= @play.player_two_character %></p>
-  <p>Player 3 character: <%= @play.player_three_character %></p>
-  <p>Player 4 character: <%= @play.player_four_character %></p>
-  <p>Loot scored: <%= @play.loot %></p>
-  <p>Tools scored: <%= @play.tools %></p>
-  <p>Event cards played: <%= @play.events %></p>
-  <p>Winner: <%= @play.winner %></p>
+  </div>
+
 </div>
