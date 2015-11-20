@@ -5,7 +5,7 @@
   <p class="buy-this-link"><%= link_to "Buy this game", @game.purchase_url %></p>
   <!-- temp hardcode link to rules - will need to update migration if app expands to more game types -->
   <p class="rule-link"><a href="https://drive.google.com/file/d/0B2MYuVG_ZCKnX2JsTi00TUYydFE/view" target="_blank">Rules</a></p>
-  <p><%= link_to "About the Game", game_characters_path(@game) %></p>
+  <!-- <p><%#= link_to "About the Game", game_characters_path(@game) %></p> -->
   <div class="action-buttons">
     <p><%= link_to "Create New Game Played", new_game_play_path(@game) %></p>
   </div>

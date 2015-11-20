@@ -2,6 +2,7 @@
 
   <%= render partial: "shared/gameheader" %>
 
+
   <div class="plays-display">
     <h3>Games played recently:</h3>
 
@@ -15,8 +16,13 @@
         <% end %>
       </div>
     <% end %>
-
   </div>
 
+  <ul class="key">
+    <li><%= image_tag "winner-cup.png" %></li>
+    <li><p> = game won</p></li>
+    <li><%= image_tag "patrolman.jpg" %></li>
+    <li><p> = game lost</p></li>
+  </ul>
+
 </div>
-<%#= image_tag @game.logo, class: "game-logo", alt: @game.title %>

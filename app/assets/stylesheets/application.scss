@@ -28,7 +28,6 @@ $dark-accent: #461F06;
 
 body {
   background: $button-background-color;
-  // background-image: url('brick-paper.jpg');
 }
 
 // forms
@@ -52,6 +51,16 @@ body {
   @include border-radius(5px);
   text-decoration: none;
   color: white;
+}
+
+// home intro
+.instructions {
+  p {
+    font-size: 25px;
+    color: white;
+    text-align: center;
+    padding: 0 5%;
+  }
 }
 
 // game styles
@@ -82,6 +91,11 @@ body {
   }
 }
 
+// flash messages
+.notice, .alert {
+  color: white;
+}
+
 // stars
 .star-rating {
   padding-left: 20px;
@@ -93,23 +107,14 @@ body {
   max-width: 20px;
 }
 
-.play-buttons {
-  p {
-    display: inline-block;
-    padding: 15px;
-    background-color: $tools;
-    color: white;
-    @include border-radius(5px);
-  }
-  p:hover {
-    background-color: $button-background-color;
-  }
-  a {
-    text-decoration: none;
-    color: white;
-  }
+img {
+  width: 100%;
+  max-height: 200px;
+  margin: 0 auto;
+  @include border-radius(10px);
 }
 
+// show styles
 .show-header {
   background-image: image-url("burgle-bros-lineup.png");
   background-size: cover;
@@ -120,7 +125,6 @@ body {
       font-family: 'Arial Black', sans-serif;
     }
 }
-
 
 .gameplay-details {
     h3 {
@@ -142,6 +146,26 @@ body {
   margin-bottom: 35px;
 }
 
+.plays-display, .characters-display {
+  padding: 5%;
+}
+
+ul.key {
+  padding: 10px;
+  li {
+    display: inline-block;
+  }
+  p {
+    padding-right: 10px;
+  }
+  img {
+    max-width: 45px;
+    padding: 1%;
+  }
+}
+
+
+// buttons
 button {
   position: relative;
   right: 0;
@@ -151,16 +175,44 @@ button {
     }
 }
 
-img {
-  width: 100%;
-  max-height: 200px;
-  margin: 0 auto;
-  @include border-radius(10px);
+.play-buttons {
+  p {
+    display: inline-block;
+    padding: 15px;
+    background-color: $tools;
+    color: white;
+    @include border-radius(5px);
+  }
+  p:hover {
+    background-color: $button-background-color;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
 }
+
 
 // tiles
 .game-tile {
   background-color: $loot;
+}
+
+.static-tile {
+  background-color: darken($loot, 20%);
+  h3 {
+    color: darken(white, 5%);
+  }
+  img.coming-soon {
+    background-color: darken(white, 40%);
+    padding: 22px 0;
+  }
+}
+.static-tile:hover {
+  background-color: $loot;
+  img.coming-soon {
+    background-color: white;
+  }
 }
 .play-tile {
   background-color: $patrolman;
@@ -172,7 +224,7 @@ img {
 .game-tile, .play-tile, .char-tile {
   display: inline-block;
   width: 30%;
-  margin: 1% auto;
+  margin: 1%;
   padding: 2%;
   text-align: center;
   @include border-radius(10px);
@@ -181,11 +233,15 @@ img {
     padding-left: 3%;
   }
 
-
   a {
     text-decoration: none;
     color: white;
     padding: 5px;
+  }
+  
+  a:hover {
+    background-color: rgba($button-background-color, 0.3);
+    @include border-radius(5px);
   }
 
 }
@@ -232,13 +288,4 @@ img {
 }
 .result-tile {
   background-color: $patrolman;
-}
-
-.plays-display, .characters-display {
-  padding: 5%;
-}
-
-// flash messages
-.notice, .alert {
-  color: white;
 }

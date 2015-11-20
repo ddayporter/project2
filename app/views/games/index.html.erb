@@ -1,11 +1,19 @@
+<div class="instructions">
+  <p>Welcome to GameTrackr (Beta)!</p>
+  <p>Click "See Heists" to view past games and log new game details for the game "Burgle Bros."</p>
+
+</div>
 
 <!-- <button class="btn btn-primary" role="button">
   <%#= link_to "Create New Game", new_game_path %>
 </button> -->
-
 <% @games.each do |game| %>
   <div class="game-tile">
     <%= image_tag game.logo, alt: game.title %>
     <h3><%= link_to "See Heists", game_path(game) %></h3>
   </div>
 <% end %>
+<div class="game-tile static-tile">
+  <%= image_tag "comingsoon.png", class: "coming-soon", alt: "Coming Soon!" %>
+  <h3>More games to be added!</h3>
+</div>
