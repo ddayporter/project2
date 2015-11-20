@@ -1,5 +1,20 @@
-<h2>Edit the game played on <%= @play.date %></h2>
+<%= render partial: "shared/gameheader" %>
 
-<%= render 'form' %>
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-7"><h2 class="play-form">Edit the game played on <%= @play.date %></h2>
+  </div>
+</div>
 
-<%= link_to "Delete Game", game_play_path(@game, @play), method: :delete, class: "delete" %>
+<div class="form-horizontal">
+  <%= render 'form' %>
+</div>
+
+<div class="row">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-7">
+    <%= link_to "Delete Game", game_play_path(@game, @play), method: :delete, class: "delete" %>
+  </div>
+</div>

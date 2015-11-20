@@ -1,53 +1,53 @@
-<%= form_for [@game, @play], role: "form", class: "game-form" do |f| %>
+<%= form_for [@game, @play], role: "form" do |f| %>
   <!-- <div class="form-group">
     <%#=collection_check_boxes(:play, :character_ids, Character.all, :id, :name)%>
   </div> -->
 
   <div class="form-group">
     <%= f.label :date, class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <div class="col-sm-7">
     <%= f.date_field :date, placeholder: "mm/dd/yy", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :image, value: "Floor Layout URL", class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
-    <%= f.text_field :image, placeholder: "http://", class: "form-control" %>
+    <div class="col-sm-7">
+    <%= f.text_field :image, placeholder: "Find a layout at http://gabob.com/burgle/", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :num_floors, value: "Number of Floors (1 - 3)", class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <%= f.label :num_floors, value: "Number of Floors", class: "control-label col-sm-2" %>
+    <div class="col-sm-7">
     <%= f.text_field :num_floors, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :loot, class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <div class="col-sm-7">
     <%= f.text_field :loot, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :tools, class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <div class="col-sm-7">
     <%= f.text_field :tools, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :events, class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <div class="col-sm-7">
     <%= f.text_field :events, class: "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :winner, value: "Did you win? Enter 'y' or 'n'", class: "control-label col-sm-2" %>
-    <div class="sm-col-7">
+    <div class="col-sm-7">
     <%= f.text_field :winner, class: "form-control" %>
     </div>
   </div>

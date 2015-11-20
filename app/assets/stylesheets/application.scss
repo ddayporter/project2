@@ -31,7 +31,8 @@ body {
   // background-image: url('brick-paper.jpg');
 }
 
-.devise-form, .game-form {
+// forms
+.devise-form, .game-form, .play-form {
   color: white;
     input {
       margin-bottom: 1%;
@@ -53,12 +54,13 @@ body {
   color: white;
 }
 
+// game styles
 .game-logo {
   position: relative;
   width: 100%;
 }
 
-.game-info, .play-buttons {
+.game-info {
   p {
     display: inline-block;
     padding: 10px;
@@ -80,6 +82,34 @@ body {
   }
 }
 
+// stars
+.star-rating {
+  padding-left: 20px;
+  p {
+    display: inline-block;
+  }
+}
+.star {
+  max-width: 20px;
+}
+
+.play-buttons {
+  p {
+    display: inline-block;
+    padding: 15px;
+    background-color: $tools;
+    color: white;
+    @include border-radius(5px);
+  }
+  p:hover {
+    background-color: $button-background-color;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .show-header {
   background-image: url('burgle-bros-lineup');
   background-size: cover;
@@ -91,34 +121,19 @@ body {
     }
 }
 
-.play-buttons {
-  p:hover {
-    background-color: $tools;
-  }
-}
 
 .gameplay-details {
     h3 {
       padding: 20px;
-      background: rgba($tools, 0.8);
+      background: rgba($button-background-color, 0.5);
       text-align: center;
       color: white;
       @include border-radius(5px);
     }
     p {
-      // background: rgba($events, 0.4);
       font-weight: bold;
     }
-    // p:nth-of-type(odd) {
-    //
-    // }
-}
 
-.game-result {
-  img {
-    float: left;
-    max-width: 100px;
-  }
 }
 
 .show-page {
@@ -142,14 +157,14 @@ img {
   margin: 0 auto;
   @include border-radius(10px);
 }
+
+// tiles
 .game-tile {
   background-color: $loot;
 }
-
 .play-tile {
   background-color: $patrolman;
 }
-
 .char-tile {
   background-color: $events;
 }
@@ -175,12 +190,13 @@ img {
 
 }
 
-.char-sm-tile {
+.char-sm-tile, .tool-tile, .loot-tile, .event-tile, .result-tile {
   display: inline-block;
   width: 18%;
   margin: 1% auto;
   padding: 2%;
   text-align: center;
+  color: white;
   @include border-radius(10px);
 
   a {
@@ -189,6 +205,7 @@ img {
   }
 
 }
+
 .player-tile {
   background-color: $events;
   color: white;
@@ -204,6 +221,18 @@ img {
     }
 }
 
+.tool-tile {
+  background-color: $tools;
+}
+.loot-tile {
+  background-color: $loot;
+}
+.event-tile {
+  background-color: $events;
+}
+.result-tile {
+  background-color: $patrolman;
+}
 
 .plays-display, .characters-display {
   padding: 5%;

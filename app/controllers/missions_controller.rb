@@ -1,4 +1,5 @@
 class MissionsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
   end
