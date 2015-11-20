@@ -35,6 +35,8 @@ body {
   color: white;
     input {
       margin-bottom: 1%;
+      color: $button-background-color;
+
     }
     a:hover {
       color: white;
@@ -238,7 +240,7 @@ button {
     color: white;
     padding: 5px;
   }
-  
+
   a:hover {
     background-color: rgba($button-background-color, 0.3);
     @include border-radius(5px);

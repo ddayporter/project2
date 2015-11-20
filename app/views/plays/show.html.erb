@@ -2,13 +2,6 @@
 
   <%= render partial: "shared/gameheader" %>
 
-  <!-- <div class="gameplay-next">
-    <%# if @play_counter <= @plays.count %>
-    <%#= link_to "Next", game_play_path(@game, @play_counter) %>
-    <% else %>
-    <%#= link_to "Next", game_play_path(@game, @plays.first) %>
-    <%# end %>
-  </div> -->
   <div class="plays-display">
     <div class="play-buttons">
       <p><%= link_to "Edit this game", edit_game_play_path(@game, @play) %></p>
@@ -19,6 +12,7 @@
       <p>Date played: <%= l @play.date, format: :long %></p>
       <p>Number of floors: <%= @play.num_floors %> (<%= link_to "See Layout", @play.image %>)</p>
       <h3>Characters</h3>
+
       <div class="character-list">
         <% @game.characters.each do |character| %>
           <% mission = Mission.find_by(play: @play, character: character) %>
@@ -36,6 +30,7 @@
           <% end %>
         <% end %>
       </div>
+
       <h3>Loot scored </h3>
         <%= image_tag "loot.jpg", class: "loot-tile", alt: "loot card" %>
         <% if @play.loot %>
@@ -44,6 +39,7 @@
             <p class="loot-tile"><%= loot %></p>
           <% end %>
         <% end %>
+
       <h3>Tools scored</h3>
         <%= image_tag "tools.jpg", class: "tool-tile", alt: "tool card" %>
         <% if @play.tools %>
@@ -52,6 +48,7 @@
             <p class="tool-tile"><%= tool %></p>
           <% end %>
         <% end %>
+
       <h3>Event cards played </h3>
       <%= image_tag "events.jpg", class: "event-tile", alt: "event card" %>
       <% if @play.events %>
@@ -60,6 +57,7 @@
           <p class="event-tile"><%= event %></p>
         <% end %>
       <% end %>
+
       <h3>Result</h3>
         <% if @play.winner == 'y' %>
           <%= image_tag "winner-cup.png", class: "result-tile" %>
@@ -68,9 +66,8 @@
           <%= image_tag "patrolman.jpg", class: "result-tile" %>
           <p class="result-tile">Caught!</p>
         <% end %>
+
       </div>
     </div>
-
   </div>
-
 </div>
