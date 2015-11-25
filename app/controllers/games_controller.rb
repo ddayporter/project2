@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
 
   before_action :set_game, only: [:show, :edit, :update, :destroy]
+  # mms: to be safe, it's better to lock down all controller actions (via application controller) and skip auth in a few specific actions (like games#index).
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index

@@ -8,11 +8,13 @@ class PlaysController < ApplicationController
 
   def new
     @game = Game.find(params[:game_id])
+    # mms: utilize the relationship: @game.plays.build or current_user.plays.build
     @play = Play.new
   end
 
   def create
     @game = Game.find(params[:game_id])
+    # mms: good answer for a tough problem (assigning both user & game at the same time)
     @play = current_user.plays.create!(play_params.merge(game: @game))
     if @play.save
       flash[:notice] = "Your game was successfully created."
@@ -48,6 +50,7 @@ class PlaysController < ApplicationController
   end
 
   def set_play
+    # mms: utilize relationship.  Ensure this play is for the current_user and/or game
     @play = Play.find(params[:id])
     @game = @play.game
     # for "next" button:
